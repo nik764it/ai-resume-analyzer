@@ -1,17 +1,19 @@
 import { useState } from "react";
 import NavBar from "../NavBar"
+import { useNavigate } from "react-router-dom";
 import extractPdfText from "../utils/extractPdfText";
 import i from "../assets/icons/info.svg";
 import gif from "../assets/images/resume-scan.gif"
 import pdf from "../assets/images/pdf.png"
 export default function Upload() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     company: "",
     jobTitle: "",
     jobDescription: "",
     resume: null
   })
-  const [results, setResults] = useState(null);
+
   const [loading, setLoading] = useState("");
 
 
@@ -83,8 +85,12 @@ export default function Upload() {
     const response = await window.puter.ai.chat(prompt);
     setLoading("complete");
     const parsedResult = JSON.parse(response.message.content);
-    setResults(parsedResult);
-    
+ 
+
+    navigate("/analysis",{
+      state:parsedResult
+    });
+
     console.log(parsedResult);
   }
 
