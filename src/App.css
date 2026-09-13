@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  height: auto;
+}
+
+.home {
+  min-height: 100vh;
+  ;
+  background: url(./assets/images/bg-main.svg);
+  background-size: cover;
+  height: 500px;
+  padding-top: 50px;
+
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  height: 90px;
+
+}
+
+.nav {
+  display: flex;
+  width: 70%;
+  height: 100%;
+  border: solid 1px white;
+  background-color: white;
+  border-radius: 40px;
+}
+
+.nav div {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.resume-div {
+  padding-left: 60px;
+}
+
+.resume-div>p {
+  font-weight: 700;
+  font-size: 27px;
+
+  background: linear-gradient(90deg,
+      black,
+      black,
+      #c5c5c5,
+      black,
+      black);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+}
+
+.upload-div {
+  padding-right: 80px;
+  justify-content: end
+}
+
+.upload-div>button {
+  font-family: 'Inter', sans-serif;
+  height: 50px;
+  width: 220px;
+  border-radius: 22px;
+  color: white;
+  font-size: 20px;
+  background-color: rgb(43, 43, 121);
+  border: solid 1px rgb(43, 43, 121);
+  cursor: pointer;
+  transition: all 0.15s
+}
+
+.upload-div>button:hover {
+  background-color: rgb(35, 35, 180);
+
+}
+
+.desc {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: 75px;
+  font-weight: 500;
+  margin-top: 170px;
+  background: linear-gradient(90deg,
+      rgb(179, 178, 178),
+      black,
+      black,
+      black,
+      black);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0;
+}
+
+.desc2 {
+  margin-top: 20;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: 37px;
+  font-weight: 200;
+  color: rgb(152, 151, 151);
+}
+
+.upload-resume-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+  height: 80px;
+}
+
+.upload-button {
+  font-family: "Poppins", sans-serif;
+  height: 60px;
+  width: 300px;
+  background-color: #18181b;
+  gap: 8px;
+  padding: 12px 24px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.upload-button:active {
+  background-color: #29292d
+}
+
+.upload-button:hover {
+  transform: translateY(-3px);
+}
+
+.details {
+  min-height: 100vh;
+  background: url("./assets/images/bg-main.svg");
+  background-size: cover;
+  background-position: center;
+  padding-top: 50px;
+  padding-bottom: 200px;
+}
+
+.desc3 {
+  font-size: 65px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.desc4 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 35px;
+  color: rgb(87, 87, 134);
+  margin-top: 30px;
+}
+
+.form-c {
+  display: flex;
+  height: auto;
+  justify-content: center;
+  margin-top: 45px;
+}
+
+.form-c form {
+  width: 45%;
+  height: 800px;
+}
+
+label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 10px;
+  color: #2B2F77;
+}
+
+input {
+  width: 100%;
+  height: 45px;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid #C9CCE0;
+  border-radius: 10px;
+  padding: 5px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+
+  font-size: 15px;
+  outline: none;
+  box-shadow: 0 1px 3px #C9CCE0,
+    0 1px 2px #C9CCE0;
+}
+
+textarea {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  width: 100%;
+  height: 250px;
+  border: 1px solid #C9CCE0;
+  border-radius: 10px;
+  padding: 10px 10px 0px 10px;
+  outline: none;
+  box-shadow: 0 1px 3px #C9CCE0,
+    0 1px 2px #C9CCE0;
+}
+
+.file {
+  border-radius: 10px;
+  margin-top: 25px;
+  height: 200px;
+}
+
+.file input {
+  display: none;
+}
+
+.file label {
+  background: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+span {
+  font-weight: 600;
+}
+
+.upload-btn {
+  font-family: "Poppins", sans-serif;
+  height: 60px;
+  width: 300px;
+  background-color: #18181b;
+  gap: 8px;
+  padding: 12px 24px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.upload-btn:active {
+  background-color: #29292d
+}
+.u{
+  height:50px;
+  margin-top:50px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.u > button{
+  width:60%;
+}
+.i-image{
+  width:50px;
+  height:50px;
+}
