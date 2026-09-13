@@ -2,6 +2,7 @@ import { useState } from "react";
 import NavBar from "../NavBar"
 import extractPdfText from "../utils/extractPdfText";
 import i from "../assets/icons/info.svg";
+import gif from "../assets/images/resume-scan.gif"
 import pdf from "../assets/images/pdf.png"
 export default function Upload() {
   const [form, setForm] = useState({
@@ -10,6 +11,9 @@ export default function Upload() {
     jobDescription: "",
     resume: null
   })
+  const [results, setResults] = useState(null);
+  const [loading, setLoading] = useState("");
+
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -26,9 +30,33 @@ export default function Upload() {
     }))
   }
 
+  if (loading) {
+    return (
+      <div className="details">
+        <NavBar />
+        <div className="status">
+          <div className="status-container">
+            <div className="text">
+              {loading === "pdf" && <p>Loading PDF...</p>}
+              {loading === "ai" && <p>Analyzing...</p>}
+              {loading === "complete" && <p>Resume analyzed!</p>}
+            </div>
+            <div className="gif-container">
+              <img src={gif} className="gif" />
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
   async function handleSubmit(e) {
     e.preventDefault();
+
+    setLoading("pdf");
+
     const resumeText = await extractPdfText(form.resume);
+    setLoading("ai");
+
 
     const prompt = `
       Company:${form.company}
@@ -39,10 +67,25 @@ export default function Upload() {
 
       Resume:
       ${resumeText}
+
+      Return only valid JSON in this exact structure:
+
+      {
+       "atsScore": 0,
+       "summary": "",
+       "strengths": [],    
+       "weaknesses": [],
+       "missingSkills": [],
+       "improvements": []
+      }
     `;
 
     const response = await window.puter.ai.chat(prompt);
-    console.log(response.message.content);
+    setLoading("complete");
+    const parsedResult = JSON.parse(response.message.content);
+    setResults(parsedResult);
+    
+    console.log(parsedResult);
   }
 
 
